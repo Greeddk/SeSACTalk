@@ -27,5 +27,34 @@ extension ChatRoomViewController { //UI
     
     func setUI() {
         
+        topLineView.backgroundColor = .systemGray4
     }
+
+    
+}
+
+extension ChatRoomViewController { //NavigationBar
+    
+    func setNavigationBar() {
+        
+        configureBackButton()
+        
+        navigationItem.title = "Den"
+        
+        navigationItem.hidesBackButton = true
+        
+    }
+    
+    func configureBackButton() {
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonClicked))
+        backButton.tintColor = .black
+        
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc func backButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
