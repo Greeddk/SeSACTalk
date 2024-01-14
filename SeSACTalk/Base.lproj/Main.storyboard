@@ -69,17 +69,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-SI-3v0">
-                                <rect key="frame" x="175" y="59" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qv0-H3-nJV">
+                                <rect key="frame" x="0.0" y="59" width="393" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="T78-VX-hpb"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gSb-iu-oS9">
+                                <rect key="frame" x="0.0" y="60" width="393" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEi-dR-uPt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qv0-H3-nJV" firstAttribute="leading" secondItem="cEi-dR-uPt" secondAttribute="leading" id="2Km-Kl-Z4T"/>
+                            <constraint firstItem="cEi-dR-uPt" firstAttribute="trailing" secondItem="gSb-iu-oS9" secondAttribute="trailing" id="E8U-jQ-LNV"/>
+                            <constraint firstItem="gSb-iu-oS9" firstAttribute="leading" secondItem="cEi-dR-uPt" secondAttribute="leading" id="Ff9-nE-3NK"/>
+                            <constraint firstItem="Qv0-H3-nJV" firstAttribute="top" secondItem="cEi-dR-uPt" secondAttribute="top" id="UMk-ob-EPQ"/>
+                            <constraint firstItem="gSb-iu-oS9" firstAttribute="top" secondItem="Qv0-H3-nJV" secondAttribute="bottom" id="im4-Le-T0F"/>
+                            <constraint firstItem="cEi-dR-uPt" firstAttribute="trailing" secondItem="Qv0-H3-nJV" secondAttribute="trailing" id="oBB-Hh-Cli"/>
+                            <constraint firstItem="cEi-dR-uPt" firstAttribute="bottom" secondItem="gSb-iu-oS9" secondAttribute="bottom" id="xke-hD-c5e"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatTableView" destination="gSb-iu-oS9" id="x3T-Za-Dnv"/>
+                        <outlet property="topLineView" destination="Qv0-H3-nJV" id="8Zt-wt-yGx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdb-Vq-Bv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

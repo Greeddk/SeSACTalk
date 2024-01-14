@@ -21,7 +21,7 @@ class TalkListViewController: UIViewController {
     
     @IBOutlet var chatListTableView: UITableView!
     
-    var chatList = mockChatList
+    var chatRoomList = mockChatList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,6 @@ class TalkListViewController: UIViewController {
         setUI()
         setNavigationBar()
     }
-    
 
 }
 
@@ -66,14 +65,14 @@ extension TalkListViewController: chatListViewProtocol {
 extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatList.count
+        return chatRoomList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TalkListTableViewCell.identifier, for: indexPath) as! TalkListTableViewCell
         
-        cell.configureTalkCell(item: chatList[indexPath.row])
+        cell.configureTalkCell(item: chatRoomList[indexPath.row])
         
         return cell
         
@@ -83,7 +82,11 @@ extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: ChatRoomViewController.identifier) as! ChatRoomViewController
         
+        vc.chatRoom = chatRoomList[indexPath.row]
+        
         navigationController?.pushViewController(vc, animated: true)
+        
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
 }

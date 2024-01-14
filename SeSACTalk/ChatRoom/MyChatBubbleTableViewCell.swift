@@ -8,16 +8,34 @@
 import UIKit
 
 class MyChatBubbleTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var chatLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    
+    static var identifier = "MyChatBubbleTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
 }
+
+extension MyChatBubbleTableViewCell {
+    
+    func setUI() {
+        
+        chatLabel.backgroundColor = .systemGray2
+        chatLabel.layer.cornerRadius = 10
+        chatLabel.layer.borderWidth = 1
+        chatLabel.layer.borderColor = UIColor.systemGray.cgColor
+        chatLabel.textColor = .black
+        chatLabel.numberOfLines = 0
+        
+        timeLabel.textColor = .systemGray
+        
+        chatLabel.text = "1234"
+        timeLabel.text = "12:33 오전"
+    }
+}
+

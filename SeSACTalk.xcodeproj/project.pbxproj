@@ -17,6 +17,10 @@
 		4291781F2B53A37F00A69FC6 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291781E2B53A37F00A69FC6 /* ChatRoomViewController.swift */; };
 		429178252B53AEE500A69FC6 /* TalkListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429178232B53AEE500A69FC6 /* TalkListTableViewCell.swift */; };
 		429178262B53AEE500A69FC6 /* TalkListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 429178242B53AEE500A69FC6 /* TalkListTableViewCell.xib */; };
+		429178292B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429178272B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.swift */; };
+		4291782A2B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 429178282B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib */; };
+		4291782D2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291782B2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift */; };
+		4291782E2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4291782C2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		4291781E2B53A37F00A69FC6 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		429178232B53AEE500A69FC6 /* TalkListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListTableViewCell.swift; sourceTree = "<group>"; };
 		429178242B53AEE500A69FC6 /* TalkListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkListTableViewCell.xib; sourceTree = "<group>"; };
+		429178272B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerChatBubbleTableViewCell.swift; sourceTree = "<group>"; };
+		429178282B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartnerChatBubbleTableViewCell.xib; sourceTree = "<group>"; };
+		4291782B2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatBubbleTableViewCell.swift; sourceTree = "<group>"; };
+		4291782C2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatBubbleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				4291781E2B53A37F00A69FC6 /* ChatRoomViewController.swift */,
+				429178272B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.swift */,
+				429178282B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib */,
+				4291782B2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift */,
+				4291782C2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";
@@ -164,7 +176,9 @@
 				429178132B539E5700A69FC6 /* LaunchScreen.storyboard in Resources */,
 				429178262B53AEE500A69FC6 /* TalkListTableViewCell.xib in Resources */,
 				429178102B539E5700A69FC6 /* Assets.xcassets in Resources */,
+				4291782A2B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib in Resources */,
 				4291780E2B539E5500A69FC6 /* Main.storyboard in Resources */,
+				4291782E2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,9 +192,11 @@
 				4291781B2B539F4C00A69FC6 /* ChattingData.swift in Sources */,
 				429178072B539E5500A69FC6 /* AppDelegate.swift in Sources */,
 				4291781F2B53A37F00A69FC6 /* ChatRoomViewController.swift in Sources */,
+				429178292B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.swift in Sources */,
 				4291781D2B53A2C600A69FC6 /* TalkListViewController.swift in Sources */,
 				429178092B539E5500A69FC6 /* SceneDelegate.swift in Sources */,
 				429178252B53AEE500A69FC6 /* TalkListTableViewCell.swift in Sources */,
+				4291782D2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
