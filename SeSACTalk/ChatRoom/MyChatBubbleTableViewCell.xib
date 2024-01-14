@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,34 +17,55 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-KO-zO0">
+                        <rect key="frame" x="273.66666666666669" y="12" width="57.333333333333314" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAX-m3-Qjd">
+                                <rect key="frame" x="8" y="8" width="41.333333333333336" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iAX-m3-Qjd" secondAttribute="trailing" constant="8" id="Cad-Q2-DbY"/>
+                            <constraint firstAttribute="bottom" secondItem="iAX-m3-Qjd" secondAttribute="bottom" constant="8" id="Mg6-q7-EAd"/>
+                            <constraint firstItem="iAX-m3-Qjd" firstAttribute="leading" secondItem="PEP-KO-zO0" secondAttribute="leading" constant="8" id="XYO-6d-C4g"/>
+                            <constraint firstItem="iAX-m3-Qjd" firstAttribute="top" secondItem="PEP-KO-zO0" secondAttribute="top" constant="8" id="juF-Mq-18g"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-3k-FQV">
-                        <rect key="frame" x="247.66666666666663" y="70" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAX-m3-Qjd">
-                        <rect key="frame" x="293.66666666666669" y="8" width="41.333333333333314" height="83"/>
+                        <rect key="frame" x="219.66666666666666" y="66" width="49.999999999999972" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="NQw-5K-SXA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="iAX-m3-Qjd" firstAttribute="leading" secondItem="QiS-3k-FQV" secondAttribute="trailing" constant="4" id="9uM-it-T0O"/>
-                    <constraint firstAttribute="bottom" secondItem="QiS-3k-FQV" secondAttribute="bottom" constant="8" id="C2C-5J-d3q"/>
-                    <constraint firstItem="iAX-m3-Qjd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="TXw-hC-GZU"/>
-                    <constraint firstAttribute="trailing" secondItem="iAX-m3-Qjd" secondAttribute="trailing" constant="8" id="Zq5-ZG-fBu"/>
-                    <constraint firstAttribute="bottom" secondItem="iAX-m3-Qjd" secondAttribute="bottom" constant="8" id="tMa-F9-r73"/>
-                    <constraint firstItem="QiS-3k-FQV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="y6h-yx-FlP"/>
+                    <constraint firstAttribute="bottom" secondItem="QiS-3k-FQV" secondAttribute="bottom" constant="12" id="C2C-5J-d3q"/>
+                    <constraint firstAttribute="trailing" secondItem="PEP-KO-zO0" secondAttribute="trailing" constant="12" id="FvN-pa-Tn8"/>
+                    <constraint firstAttribute="bottom" secondItem="PEP-KO-zO0" secondAttribute="bottom" constant="12" id="SqA-gG-3u4"/>
+                    <constraint firstItem="PEP-KO-zO0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="WIB-L1-UJt"/>
+                    <constraint firstItem="PEP-KO-zO0" firstAttribute="leading" secondItem="QiS-3k-FQV" secondAttribute="trailing" constant="4" id="XJ9-Lz-f4x"/>
+                    <constraint firstItem="QiS-3k-FQV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="y6h-yx-FlP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="chatBackView" destination="PEP-KO-zO0" id="uqz-sf-jQe"/>
                 <outlet property="chatLabel" destination="iAX-m3-Qjd" id="3Om-7R-0pF"/>
                 <outlet property="timeLabel" destination="QiS-3k-FQV" id="Jok-Mr-qyI"/>
             </connections>
             <point key="canvasLocation" x="63.358778625954194" y="39.7887323943662"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -10,6 +10,7 @@ import UIKit
 class MyChatBubbleTableViewCell: UITableViewCell {
     
     @IBOutlet var chatLabel: UILabel!
+    @IBOutlet var chatBackView: UIView!
     @IBOutlet var timeLabel: UILabel!
     
     static var identifier = "MyChatBubbleTableViewCell"
@@ -17,25 +18,22 @@ class MyChatBubbleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        backgroundColor = .clear
+        
+        setChatBubbleUI(chatBackView: chatBackView, chatLabel: chatLabel, timeLabel: timeLabel)
     }
     
 }
 
 extension MyChatBubbleTableViewCell {
     
-    func setUI() {
+    func configureMyChatBubble(item: Chat) {
         
-        chatLabel.backgroundColor = .systemGray2
-        chatLabel.layer.cornerRadius = 10
-        chatLabel.layer.borderWidth = 1
-        chatLabel.layer.borderColor = UIColor.systemGray.cgColor
-        chatLabel.textColor = .black
-        chatLabel.numberOfLines = 0
+        chatLabel.text = item.message
+        timeLabel.text = changeTimeDateFormat(date: item.date)
         
-        timeLabel.textColor = .systemGray
-        
-        chatLabel.text = "1234"
-        timeLabel.text = "12:33 오전"
+        chatBackView.backgroundColor = .systemGray5
     }
+
 }
 

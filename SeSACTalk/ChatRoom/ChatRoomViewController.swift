@@ -12,6 +12,10 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet var topLineView: UIView!
     @IBOutlet var chatTableView: UITableView!
     
+    @IBOutlet var textFieldBackView: UIView!
+    @IBOutlet var userTextField: UITextField!
+    @IBOutlet var sendButton: UIButton!
+    
     static let identifier = "ChatRoomViewController"
     
     var chatRoom: ChatRoom = ChatRoom(chatroomId: 0, chatroomImage: [User.hue.profileImage], chatroomName: User.hue.rawValue)
@@ -24,6 +28,9 @@ class ChatRoomViewController: UIViewController {
         setNavigationBar()
     }
 
+    @IBAction func sendButtonClicked(_ sender: UIButton) {
+    }
+    
 }
 
 extension ChatRoomViewController { //UI
@@ -31,6 +38,17 @@ extension ChatRoomViewController { //UI
     func setUI() {
         
         topLineView.backgroundColor = .systemGray4
+        
+        userTextField.borderStyle = .none
+        userTextField.placeholder = "메세지를 입력하세요"
+        
+        textFieldBackView.backgroundColor = .systemGray6
+        textFieldBackView.layer.cornerRadius = 8
+        
+        sendButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+        sendButton.tintColor = .systemGray4
+        sendButton.setTitle("", for: .normal)
+        
     }
     
     func configureTableView() {
@@ -38,8 +56,14 @@ extension ChatRoomViewController { //UI
         chatTableView.delegate = self
         chatTableView.dataSource = self
         
+        chatTableView.separatorStyle = .none
+        chatTableView.allowsSelection = false
+        
         let xib = UINib(nibName: MyChatBubbleTableViewCell.identifier, bundle: nil)
         chatTableView.register(xib, forCellReuseIdentifier: MyChatBubbleTableViewCell.identifier)
+        
+        let xibPartner = UINib(nibName: PartnerChatBubbleTableViewCell.identifier, bundle: nil)
+        chatTableView.register(xibPartner, forCellReuseIdentifier: PartnerChatBubbleTableViewCell.identifier)
         
         chatTableView.rowHeight = UITableView.automaticDimension
     }
@@ -80,9 +104,22 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: MyChatBubbleTableViewCell.identifier, for: indexPath) as! MyChatBubbleTableViewCell
+        let chat = chatRoom.chatList[indexPath.row]
         
-        return cell
+        if chat.user == .user {
+            let userCell = tableView.dequeueReusableCell(withIdentifier: MyChatBubbleTableViewCell.identifier, for: indexPath) as! MyChatBubbleTableViewCell
+            
+            userCell.configureMyChatBubble(item: chat)
+            
+            return userCell
+        } else {
+            let partnerCell = tableView.dequeueReusableCell(withIdentifier: PartnerChatBubbleTableViewCell.identifier, for: indexPath) as! PartnerChatBubbleTableViewCell
+            
+            partnerCell.configurePartnerChatBubble(item: chat)
+            
+            return partnerCell
+        }
+
     }
     
 }

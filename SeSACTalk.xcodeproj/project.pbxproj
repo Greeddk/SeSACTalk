@@ -21,6 +21,7 @@
 		4291782A2B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 429178282B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib */; };
 		4291782D2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291782B2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift */; };
 		4291782E2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4291782C2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib */; };
+		429178312B53D60500A69FC6 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429178302B53D60500A69FC6 /* UITableViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		429178282B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartnerChatBubbleTableViewCell.xib; sourceTree = "<group>"; };
 		4291782B2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		4291782C2B53BCE100A69FC6 /* MyChatBubbleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatBubbleTableViewCell.xib; sourceTree = "<group>"; };
+		429178302B53D60500A69FC6 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		429178052B539E5500A69FC6 /* SeSACTalk */ = {
 			isa = PBXGroup;
 			children = (
+				4291782F2B53D5F400A69FC6 /* Extension */,
 				429178222B53A5DE00A69FC6 /* Data */,
 				429178212B53A41D00A69FC6 /* ChatRoom */,
 				429178202B53A41200A69FC6 /* TalkList */,
@@ -113,6 +116,14 @@
 				4291781A2B539F4C00A69FC6 /* ChattingData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		4291782F2B53D5F400A69FC6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				429178302B53D60500A69FC6 /* UITableViewCell+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				429178072B539E5500A69FC6 /* AppDelegate.swift in Sources */,
 				4291781F2B53A37F00A69FC6 /* ChatRoomViewController.swift in Sources */,
 				429178292B53BCD600A69FC6 /* PartnerChatBubbleTableViewCell.swift in Sources */,
+				429178312B53D60500A69FC6 /* UITableViewCell+Extension.swift in Sources */,
 				4291781D2B53A2C600A69FC6 /* TalkListViewController.swift in Sources */,
 				429178092B539E5500A69FC6 /* SceneDelegate.swift in Sources */,
 				429178252B53AEE500A69FC6 /* TalkListTableViewCell.swift in Sources */,
