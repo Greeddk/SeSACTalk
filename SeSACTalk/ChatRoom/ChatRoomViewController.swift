@@ -66,6 +66,12 @@ extension ChatRoomViewController { //UI
         chatTableView.register(xibPartner, forCellReuseIdentifier: PartnerChatBubbleTableViewCell.identifier)
         
         chatTableView.rowHeight = UITableView.automaticDimension
+        
+        //채팅방 제일 최신 쳇 위치로
+        DispatchQueue.main.async {
+            let index = IndexPath(row: self.chatRoom.chatList.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: index, at: .bottom, animated: false)
+        }
     }
 
 }

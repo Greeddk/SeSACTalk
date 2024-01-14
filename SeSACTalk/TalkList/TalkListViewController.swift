@@ -22,6 +22,7 @@ class TalkListViewController: UIViewController {
     @IBOutlet var chatListTableView: UITableView!
     
     var chatRoomList = mockChatList
+    lazy var userFirendList = chatRoomList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,18 +62,35 @@ extension TalkListViewController: chatListViewProtocol {
     }
 }
 
+extension TalkListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        userFirendList = mockChatList.filter { chatRoom in
+            chatRoom.chatroomImage.contains { imageName in
+                imageName.lowercased().contains(searchText.lowercased())
+            }
+        }
+        
+        if searchText.isEmpty {
+            userFirendList = mockChatList
+        }
+        
+        chatListTableView.reloadData()
+    }
+}
 
 extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatRoomList.count
+        return userFirendList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TalkListTableViewCell.identifier, for: indexPath) as! TalkListTableViewCell
         
-        cell.configureTalkCell(item: chatRoomList[indexPath.row])
+        cell.configureTalkCell(item: userFirendList[indexPath.row])
         
         return cell
         
@@ -82,7 +100,7 @@ extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: ChatRoomViewController.identifier) as! ChatRoomViewController
         
-        vc.chatRoom = chatRoomList[indexPath.row]
+        vc.chatRoom = userFirendList[indexPath.row]
         
         navigationController?.pushViewController(vc, animated: true)
         
