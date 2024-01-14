@@ -41,7 +41,7 @@ extension TalkListViewController: chatListViewProtocol {
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
         
-        chatListTableView.rowHeight = 70
+        chatListTableView.rowHeight = 75
         
         let xib = UINib(nibName: TalkListTableViewCell.identifier, bundle: nil)
         chatListTableView.register(xib, forCellReuseIdentifier: TalkListTableViewCell.identifier)
@@ -79,7 +79,11 @@ extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: ChatRoomViewController.identifier) as! ChatRoomViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }

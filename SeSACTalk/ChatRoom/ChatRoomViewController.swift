@@ -8,6 +8,10 @@
 import UIKit
 
 class ChatRoomViewController: UIViewController {
+    
+    static let identifier = "ChatRoomViewController"
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,4 +21,11 @@ class ChatRoomViewController: UIViewController {
     
 
 
+}
+
+extension ChatRoomViewController { //UI
+    
+    func setUI() {
+        
+    }
 }

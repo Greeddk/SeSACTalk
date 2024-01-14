@@ -13,7 +13,7 @@ class TalkListTableViewCell: UITableViewCell {
     
     @IBOutlet var chatRoomNameLabel: UILabel!
     @IBOutlet var lastChatLabel: UILabel!
-    @IBOutlet var dataLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     static var identifier = "TalkListTableViewCell"
     
@@ -23,6 +23,7 @@ class TalkListTableViewCell: UITableViewCell {
         setUI()
     }
 
+    
     
 }
 
@@ -36,17 +37,37 @@ extension TalkListTableViewCell {
         
         
         chatRoomNameLabel.textColor = .black
+        chatRoomNameLabel.font = .boldSystemFont(ofSize: 14)
         
-        lastChatLabel.textColor = .systemGray
+        lastChatLabel.textColor = .gray
+        lastChatLabel.font = .systemFont(ofSize: 12)
         
-        dataLabel.textColor = .systemGray2
+        dateLabel.textColor = .systemGray
+        dateLabel.font = .systemFont(ofSize: 12)
     }
     
     func configureTalkCell(item: ChatRoom) {
         
         profileImageView.image = UIImage(named: item.chatroomImage[0])
+        
         chatRoomNameLabel.text = item.chatroomName
-        lastChatLabel.text = item.chatList.last?.message
-        dataLabel.text = item.chatList.last?.date
+        
+        guard let lastChat = item.chatList.last else { return }
+        
+        lastChatLabel.text = lastChat.message
+        
+        dateLabel.text = changeDateFormat(date: lastChat.date)
+    }
+    
+    func changeDateFormat(date: String) -> String {
+        
+        let originFormat = DateFormatter()
+        originFormat.dateFormat = "yyyy-MM-dd HH:mm"
+        guard let origin = originFormat.date(from: date) else { return "날짜 오류" }
+        
+        let customFormat = DateFormatter()
+        customFormat.dateFormat = "yy.MM.dd"
+        
+        return customFormat.string(from: origin)
     }
 }
