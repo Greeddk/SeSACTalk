@@ -22,8 +22,6 @@ class TalkListTableViewCell: UITableViewCell {
         
         setUI()
     }
-
-    
     
 }
 

@@ -68,6 +68,7 @@ extension ChatRoomViewController { //UI
         chatTableView.rowHeight = UITableView.automaticDimension
         
         //채팅방 제일 최신 쳇 위치로
+        //dispatchQueue덕에 굳이 맨 뒤에 적을 필요 없음!
         DispatchQueue.main.async {
             let index = IndexPath(row: self.chatRoom.chatList.count - 1, section: 0)
             self.chatTableView.scrollToRow(at: index, at: .bottom, animated: false)

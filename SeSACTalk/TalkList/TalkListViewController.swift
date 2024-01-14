@@ -21,8 +21,7 @@ class TalkListViewController: UIViewController {
     
     @IBOutlet var chatListTableView: UITableView!
     
-    var chatRoomList = mockChatList
-    lazy var userFirendList = chatRoomList
+    var chatList = mockChatList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +65,14 @@ extension TalkListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        userFirendList = mockChatList.filter { chatRoom in
+        chatList = mockChatList.filter { chatRoom in
             chatRoom.chatroomImage.contains { imageName in
                 imageName.lowercased().contains(searchText.lowercased())
             }
         }
         
         if searchText.isEmpty {
-            userFirendList = mockChatList
+            chatList = mockChatList
         }
         
         chatListTableView.reloadData()
@@ -83,14 +82,14 @@ extension TalkListViewController: UISearchBarDelegate {
 extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userFirendList.count
+        return chatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TalkListTableViewCell.identifier, for: indexPath) as! TalkListTableViewCell
         
-        cell.configureTalkCell(item: userFirendList[indexPath.row])
+        cell.configureTalkCell(item: chatList[indexPath.row])
         
         return cell
         
@@ -100,7 +99,7 @@ extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: ChatRoomViewController.identifier) as! ChatRoomViewController
         
-        vc.chatRoom = userFirendList[indexPath.row]
+        vc.chatRoom = chatList[indexPath.row]
         
         navigationController?.pushViewController(vc, animated: true)
         
